@@ -19,6 +19,7 @@ export const interactionEvent: EventInterface<'interactionCreate'> = {
         if (!targetCommand) return;
 
         try {
+            logger.info(`${incomingInteraction.user.username}(${incomingInteraction.user.id}) used command: /${incomingInteraction.commandName}`);
             await targetCommand.execute(incomingInteraction);
         } catch (executionError) {
             logger.error(`Command execution failed (${incomingInteraction.commandName})`, executionError);
