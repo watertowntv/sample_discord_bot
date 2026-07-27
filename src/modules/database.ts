@@ -3,7 +3,7 @@
 import { readFile, writeFile, rename, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { logger } from '../internal/utils/logger';
+import { logger } from '../internal/utils/logger.js';
 
 
 export interface UserDataInterface {

@@ -1,7 +1,7 @@
 import { REST, Routes } from 'discord.js';
 import { configModule } from './modules/config.js';
 import { loadCommandsCollection } from './handlers/command.js';
-import { logger } from './utils/logger';
+import { logger } from './utils/logger.js';
 
 
 const deployApplicationCommands = async (): Promise<void> => {

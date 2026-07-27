@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "tsx src/deploy.ts",
+    "deploy": "tsx src/internal/deploy.ts",
     "start": "tsx src/index.ts"
   },
   "keywords": [],

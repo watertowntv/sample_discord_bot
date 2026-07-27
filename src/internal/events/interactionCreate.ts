@@ -1,9 +1,9 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { Interaction, Collection } from 'discord.js';
-import { EventInterface } from '../internal/interfaces/event.js';
-import { CommandInterface } from '../internal/interfaces/command.js';
-import { logger } from '../internal/utils/logger';
+import { EventInterface } from '../interfaces/event.js';
+import { CommandInterface } from '../interfaces/command.js';
+import { logger } from '../utils/logger.js';
 
 
 export const interactionEvent: EventInterface<'interactionCreate'> = {
