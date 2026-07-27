@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
-import { CommandInterface } from '../interfaces/command.js';
+import { CommandInterface } from '../internal/interfaces/command.js';
 
 
 const PROPERTY = {

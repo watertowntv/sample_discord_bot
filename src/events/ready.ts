@@ -1,8 +1,8 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { Client } from 'discord.js';
-import { EventInterface } from '../interfaces/event.js';
-import { logger } from '../utils/logger.js';
+import { EventInterface } from '../internal/interfaces/event.js';
+import { logger } from '../internal/utils/logger';
 
 
 export const readyEvent: EventInterface<'ready'> = {

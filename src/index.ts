@@ -1,8 +1,8 @@
 import { Client, GatewayIntentBits, Collection } from 'discord.js';
-import { configModule } from './modules/config.js';
-import { loadCommandsCollection } from './handlers/command.js';
-import { registerEvents } from './handlers/event.js';
-import { CommandInterface } from './interfaces/command.js';
+import { configModule } from './internal/modules/config.js';
+import { loadCommandsCollection } from './internal/handlers/command.js';
+import { registerEvents } from './internal/handlers/event.js';
+import { CommandInterface } from './internal/interfaces/command.js';
 import { databaseManager } from './modules/database.js';
 
 
