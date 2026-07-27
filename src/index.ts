@@ -10,7 +10,14 @@ const initializeApplication = async (): Promise<void> => {
     await databaseManager.loadData();
 
     const discordClientInstance = new Client({
-        intents: [GatewayIntentBits.Guilds],
+        intents: [
+            GatewayIntentBits.Guilds,
+            GatewayIntentBits.GuildMembers,
+            GatewayIntentBits.GuildVoiceStates
+        ],
+        presence: {
+            status: 'online'
+        }
     }) as Client & { commands?: Collection<string, CommandInterface> };
 
     discordClientInstance.commands = await loadCommandsCollection();

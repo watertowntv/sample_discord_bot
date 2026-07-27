@@ -22,7 +22,7 @@ export const interactionEvent: EventInterface<'interactionCreate'> = {
             logger.info(`${incomingInteraction.user.username}(${incomingInteraction.user.id}) used command: /${incomingInteraction.commandName}`);
             await targetCommand.execute(incomingInteraction);
         } catch (executionError) {
-            logger.error(`Command execution failed (${incomingInteraction.commandName})`, executionError);
+            logger.error(`Command execution failed (${incomingInteraction.commandName}):`, executionError);
 
             const errorMessagePayload = {
                 content: 'An error occurred while executing the command.',

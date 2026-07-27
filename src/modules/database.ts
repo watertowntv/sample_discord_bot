@@ -61,7 +61,7 @@ class DatabaseManager {
         if (!existsSync(this.databaseFilePath)) {
             this.databaseCache = structuredClone(DEFAULT_DATABASE_STATE);
             await this.saveData();
-            logger.info('Initialized new database file');
+            logger.info('Database: Initialized');
             return;
         }
 
@@ -74,24 +74,25 @@ class DatabaseManager {
                 guilds: parsedData.guilds ?? {},
                 global: parsedData.global ?? structuredClone(DEFAULT_GLOBAL_DATA),
             };
-            logger.info('Database successfully loaded');
+            logger.info('Database: Loaded');
         } catch (loadError) {
-            logger.error('Failed to load database file', loadError);
+            logger.error('Database:', loadError);
             this.databaseCache = structuredClone(DEFAULT_DATABASE_STATE);
         }
     }
 
-    public async saveData(): Promise<void> {
-        await this.ensureDataDirectoryExists();
+    private savePromiseQueue: Promise<void> = Promise.resolve();
 
-        try {
-            const serializedData = JSON.stringify(this.databaseCache, null, 4);
-            await writeFile(this.temporaryFilePath, serializedData, 'utf-8');
+    public saveData(): Promise<void> {
+        this.savePromiseQueue = this.savePromiseQueue.then(async () => {
+            const serialized = JSON.stringify(this.databaseCache, null, 4);
+            await writeFile(this.temporaryFilePath, serialized, 'utf-8');
             await rename(this.temporaryFilePath, this.databaseFilePath);
-            logger.debug('Database atomically saved');
-        } catch (saveError) {
-            logger.error('Failed to save database file', saveError);
-        }
+
+            logger.debug('Database: Saved');
+        }).catch(err => logger.error('Database:', err));
+
+        return this.savePromiseQueue;
     }
 
     public getUser(userId: string): UserDataInterface {

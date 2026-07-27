@@ -1,17 +1,13 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { CommandInterface } from '../internal/interfaces/command.js';
 
 
-const PROPERTY = {
-    NAME: 'ping',
-    DESCRIPTION: 'Returns ping in ms'
-} as const;
-
-// noinspection JSUnusedGlobalSymbols
 export const command = {
     data: new SlashCommandBuilder()
-        .setName(PROPERTY.NAME)
-        .setDescription(PROPERTY.DESCRIPTION),
+        .setName('ping')
+        .setDescription('Returns ping in ms'),
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
         await interaction.reply({
             content: "Pong",

@@ -6,8 +6,8 @@ import { CommandInterface } from '../interfaces/command.js';
 import { logger } from '../utils/logger.js';
 
 
-export const readyEvent: EventInterface<'ready'> = {
-    name: 'ready',
+export const readyEvent: EventInterface<'clientReady'> = {
+    name: 'clientReady',
     once: true,
     async execute(authenticatedClient: Client<true>): Promise<void> {
         logger.info(`Authenticated: ${authenticatedClient.user.tag}`);

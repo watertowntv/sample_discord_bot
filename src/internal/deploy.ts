@@ -24,7 +24,7 @@ const deployApplicationCommands = async (): Promise<void> => {
                     )
                 )
             );
-            logger.info(`Successfully deployed commands to ${configModule.guildIdentifiers.length} guild(s).`);
+            logger.info(`Successfully deployed commands to ${configModule.guildIdentifiers.length} guilds.`);
         } else {
             await restClient.put(
                 Routes.applicationCommands(configModule.clientIdentifier),
