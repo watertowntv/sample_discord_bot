@@ -25,7 +25,7 @@ export const interactionEvent: EventInterface<'interactionCreate'> = {
             logger.error(`Command execution failed (${incomingInteraction.commandName})`, executionError);
 
             const errorMessagePayload = {
-                content: 'An error occurred while executing this command.',
+                content: 'An error occurred while executing the command.',
                 ephemeral: true,
             };
 
